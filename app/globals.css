@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a2a66;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  background: #ffffff;
+}
+
+::selection {
+  background: rgba(79, 179, 255, 0.28);
+}
+
+@layer base {
+  * {
+    @apply border-steel/20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight text-ink;
+  }
+
+  p {
+    color: rgba(0, 0, 0, 0.72);
+  }
+}
+
+@layer components {
+  .theme-shell {
+    @apply relative overflow-hidden;
+    background: linear-gradient(160deg, #f8fbff 0%, #edf4ff 42%, #f7fbff 100%);
+  }
+
+  .theme-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 8% 10%, rgba(10, 42, 102, 0.13), transparent 32%), radial-gradient(circle at 86% 12%, rgba(3, 7, 18, 0.11), transparent 30%), radial-gradient(circle at 50% 100%, rgba(79, 179, 255, 0.16), transparent 42%);
+    pointer-events: none;
+  }
+
+  .theme-light {
+    @apply relative;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 55%, #f6faff 100%);
+  }
+
+  .theme-metal {
+    @apply relative;
+    background: linear-gradient(145deg, #f4f9ff 0%, #ddeeff 42%, #f7fbff 100%);
+  }
+
+  .theme-dark {
+    @apply relative text-white;
+    background: linear-gradient(160deg, #030712 0%, #0a2a66 52%, #030712 100%);
+  }
+
+  .theme-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 12% 18%, rgba(79, 179, 255, 0.22), transparent 34%), radial-gradient(circle at 88% 82%, rgba(95, 143, 214, 0.18), transparent 36%);
+    pointer-events: none;
+  }
+
+  .panel {
+    @apply border border-black/10 bg-white;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-500;
+  }
+
+  .section-title {
+    @apply max-w-3xl text-4xl font-bold uppercase leading-[0.96] text-[#0A2A66] md:text-5xl;
+  }
+
+  .field {
+    @apply w-full border border-black/10 bg-white px-4 py-3 text-sm text-[#030712] placeholder:text-[#0A2A66]/55 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20;
+  }
+
+  .tag-chip {
+    @apply rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium text-[#0A2A66] transition;
+  }
+
+  .panel.theme-light,
+  .panel.theme-metal,
+  .panel.theme-dark {
+    background: transparent;
+  }
+
+  .panel.theme-light {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 55%, #f6faff 100%);
+  }
+
+  .panel.theme-metal {
+    background: linear-gradient(145deg, #f4f9ff 0%, #ddeeff 42%, #f7fbff 100%);
+  }
+
+  .panel.theme-dark {
+    background: linear-gradient(160deg, #030712 0%, #0a2a66 52%, #030712 100%);
+  }
+}

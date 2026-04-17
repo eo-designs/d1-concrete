@@ -1,0 +1,10 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#E3F0FF"/>
+  <rect x="116" y="144" width="962" height="544" rx="28" fill="#0A2A66" fill-opacity="0.14"/>
+  <rect x="220" y="236" width="754" height="354" rx="24" fill="#F4F9FF"/>
+  <path d="M220 416H974" stroke="#6C8FB3" stroke-width="8" stroke-dasharray="18 16"/>
+  <path d="M598 236V590" stroke="#6C8FB3" stroke-width="8" stroke-dasharray="18 16"/>
+  <rect x="904" y="176" width="118" height="118" rx="18" fill="#4FB3FF" fill-opacity="0.3"/>
+  <path d="M0 726H1200" stroke="#030712" stroke-opacity="0.12" stroke-width="10" stroke-dasharray="18 18"/>
+  <text x="86" y="822" fill="#030712" font-family="Arial, sans-serif" font-size="40" font-weight="700">Commercial Pad Placeholder</text>
+</svg>

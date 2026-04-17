@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "id": "residential-driveway-lodi",
+      "title": "Custom Driveway Refresh",
+      "category": "residential",
+      "image": "/assets/gallery/residential-driveway.svg",
+      "alt": "Placeholder residential driveway concrete image",
+      "tags": ["driveway", "residential", "broom-finish", "lodi"],
+      "location": "Lodi, CA",
+      "scope": "Wide residential driveway replacement with clean control joints and border detailing.",
+      "createdAt": "2026-04-08T17:00:00.000Z"
+    },
+    {
+      "id": "commercial-pad-bay-area",
+      "title": "Commercial Equipment Pad",
+      "category": "commercial",
+      "image": "/assets/gallery/commercial-pad.svg",
+      "alt": "Placeholder commercial equipment pad image",
+      "tags": ["commercial", "pad", "sitework", "bay-area"],
+      "location": "Bay Area, CA",
+      "scope": "Equipment pad and access concrete staged around active business operations.",
+      "createdAt": "2026-04-07T17:00:00.000Z"
+    },
+    {
+      "id": "residential-patio-tahoe",
+      "title": "Stamped Patio Upgrade",
+      "category": "residential",
+      "image": "/assets/gallery/residential-patio.svg",
+      "alt": "Placeholder stamped patio image",
+      "tags": ["residential", "patio", "stamped", "tahoe"],
+      "location": "Lake Tahoe, CA",
+      "scope": "Decorative patio pour with warm-tone patterning for a mountain property exterior refresh.",
+      "createdAt": "2026-04-06T17:00:00.000Z"
+    },
+    {
+      "id": "commercial-sidewalk-sacramento",
+      "title": "Retail Frontage Sidewalk",
+      "category": "commercial",
+      "image": "/assets/gallery/commercial-sidewalk.svg",
+      "alt": "Placeholder commercial sidewalk image",
+      "tags": ["commercial", "sidewalk", "retail", "sawcut"],
+      "location": "Sacramento Region, CA",
+      "scope": "Frontage sidewalk replacement designed to keep storefront access clean and direct.",
+      "createdAt": "2026-04-05T17:00:00.000Z"
+    },
+    {
+      "id": "residential-pooldeck-northern-california",
+      "title": "Pool Deck Replacement",
+      "category": "residential",
+      "image": "/assets/gallery/residential-pooldeck.svg",
+      "alt": "Placeholder pool deck concrete image",
+      "tags": ["residential", "pool-deck", "textured", "northern-california"],
+      "location": "Northern California, CA",
+      "scope": "Pool deck concrete replacement with improved flow, slip-friendly texture, and cleaner edge transitions.",
+      "createdAt": "2026-04-04T17:00:00.000Z"
+    },
+    {
+      "id": "commercial-warehouse-floor-redding",
+      "title": "Warehouse Slab Section",
+      "category": "commercial",
+      "image": "/assets/gallery/commercial-warehouse.svg",
+      "alt": "Placeholder warehouse slab image",
+      "tags": ["commercial", "warehouse", "slab", "redding"],
+      "location": "Redding, CA",
+      "scope": "High-use slab section built for heavy wear and clean workflow around warehouse operations.",
+      "createdAt": "2026-04-03T17:00:00.000Z"
+    }
+  ]
+}

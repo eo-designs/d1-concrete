@@ -1,0 +1,8 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#EAF4FF"/>
+  <rect x="190" y="150" width="820" height="580" rx="34" fill="#F4F9FF"/>
+  <rect x="352" y="286" width="494" height="248" rx="24" fill="#7FB6C5"/>
+  <path d="M264 632C354 564 464 530 594 530C724 530 846 564 960 632" stroke="#4FB3FF" stroke-opacity="0.35" stroke-width="46" stroke-linecap="round"/>
+  <circle cx="946" cy="256" r="64" fill="#1F4F9D" fill-opacity="0.22"/>
+  <text x="88" y="822" fill="#030712" font-family="Arial, sans-serif" font-size="40" font-weight="700">Pool Deck Placeholder</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F4F9FF"/>
+  <rect x="128" y="148" width="944" height="580" rx="34" fill="#F7FBFF"/>
+  <path d="M222 664L406 332H792L978 664H222Z" fill="#D7E8FB"/>
+  <path d="M314 664L461 391H739L886 664H314Z" fill="#4FB3FF" fill-opacity="0.26"/>
+  <path d="M388 664L514 446H686L812 664H388Z" fill="#F4F9FF"/>
+  <circle cx="950" cy="242" r="82" fill="#1F4F9D" fill-opacity="0.22"/>
+  <text x="90" y="822" fill="#030712" font-family="Arial, sans-serif" font-size="40" font-weight="700">Stamped Patio Placeholder</text>
+</svg>

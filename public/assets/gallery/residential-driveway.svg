@@ -1,0 +1,10 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#EAF4FF"/>
+  <rect y="620" width="1200" height="280" fill="#D7E8FB"/>
+  <path d="M356 900L474 342H744L862 900H356Z" fill="#F4F9FF"/>
+  <path d="M422 900L521 403H697L796 900H422Z" fill="#B8D5F5"/>
+  <path d="M474 402H744" stroke="#6C8FB3" stroke-width="6" stroke-dasharray="14 14"/>
+  <rect x="80" y="118" width="244" height="188" rx="26" fill="#B8C9D0"/>
+  <path d="M0 630L270 544L446 596L736 454L1200 637V900H0V630Z" fill="#1F4F9D" fill-opacity="0.22"/>
+  <text x="84" y="820" fill="#030712" font-family="Arial, sans-serif" font-size="40" font-weight="700">Residential Driveway Placeholder</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#EAF4FF"/>
+  <path d="M0 646L1200 416V900H0V646Z" fill="#D7E8FB"/>
+  <path d="M0 526L1200 296V396L0 626V526Z" fill="#F4F9FF"/>
+  <path d="M178 505L1082 332" stroke="#6C8FB3" stroke-width="8" stroke-dasharray="18 14"/>
+  <path d="M0 238H1200" stroke="#0A2A66" stroke-opacity="0.2" stroke-width="120"/>
+  <text x="88" y="824" fill="#030712" font-family="Arial, sans-serif" font-size="40" font-weight="700">Commercial Sidewalk Placeholder</text>
+</svg>
