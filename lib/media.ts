@@ -3,6 +3,20 @@ function readEnvValue(value?: string) {
   return trimmed && trimmed.length > 0 ? trimmed : undefined;
 }
 
+function normalizeHomeBackgroundUrl(value?: string) {
+  const url = readEnvValue(value);
+
+  if (!url) {
+    return undefined;
+  }
+
+  if (url.includes('brandon_mora_finish_draft3.mov')) {
+    return undefined;
+  }
+
+  return url;
+}
+
 function withBasePath(fileName: string) {
   const baseUrl = readEnvValue(process.env.NEXT_PUBLIC_MEDIA_BASE_URL);
 
@@ -22,7 +36,7 @@ function fromPrimaryOrLegacyEnv(primary: string | undefined, legacy: string | un
 }
 
 export const media = {
-  homeBackgroundVideo: readEnvValue(process.env.NEXT_PUBLIC_MEDIA_HOME_BACKGROUND_URL),
+  homeBackgroundVideo: normalizeHomeBackgroundUrl(process.env.NEXT_PUBLIC_MEDIA_HOME_BACKGROUND_URL) || withBasePath('home_page_background.mov'),
   galleryImage1: fromPrimaryOrLegacyEnv(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_1_URL, process.env.NEXT_PUBLIC_MEDIA_GALLERY_VIDEO_1_URL, 'image1.png'),
   galleryImage2: fromPrimaryOrLegacyEnv(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_2_URL, process.env.NEXT_PUBLIC_MEDIA_GALLERY_VIDEO_2_URL, 'image2.png'),
   galleryImage3: fromPrimaryOrLegacyEnv(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_3_URL, process.env.NEXT_PUBLIC_MEDIA_GALLERY_VIDEO_3_URL, 'image3.png'),
