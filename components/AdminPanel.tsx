@@ -177,13 +177,13 @@ export function AdminPanel({ initialItems, initialTags, initialStorage }: { init
             <Reveal>
               <div className="panel space-y-4 p-6 md:p-8">
                 <h3 className="text-2xl font-semibold text-ink">Manual Gallery Workflow</h3>
-                <p className="text-sm leading-7">You asked for a free path that stays Vercel-ready. In production manual mode, image and metadata updates are intentionally handled through code commits instead of runtime writes.</p>
+                <p className="text-sm leading-7">In production manual mode, image and metadata updates are intentionally handled through code commits instead of runtime writes.</p>
                 <div className="rounded-3xl border border-steel/20 bg-white/70 p-5 text-sm leading-7 text-ink">
                   1. Add image files under <span className="font-semibold">public/assets/gallery</span>.<br />
                   2. Add the new item and tags in <span className="font-semibold">data/gallery.json</span>.<br />
                   3. Push to Git and let Vercel deploy.
                 </div>
-                <p className="text-sm leading-7">If you later want runtime uploads without code changes, add <span className="font-semibold">BLOB_READ_WRITE_TOKEN</span> in Vercel and this admin screen will switch to cloud upload mode automatically.</p>
+                <p className="text-sm leading-7">Brand media (hero and homepage gallery) is served from local assets in development and can use Cloudinary URLs in production.</p>
               </div>
             </Reveal>
           )}

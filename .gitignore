@@ -125,7 +125,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
-.blob-upload-manifest.json
+.cloudinary-upload-manifest.json
 
 # yarn v3
 .pnp.*

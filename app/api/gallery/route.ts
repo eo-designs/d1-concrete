@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   if (!storage.canWriteFromAdmin) {
     return NextResponse.json(
       {
-        error: 'Admin uploads are disabled in production manual mode. Add files to public/assets/gallery and commit data/gallery.json changes, or configure BLOB_READ_WRITE_TOKEN to enable cloud uploads.'
+        error: 'Admin uploads are disabled in production manual mode. Add files to public/assets/gallery and commit data/gallery.json changes.'
       },
       { status: 400 }
     );

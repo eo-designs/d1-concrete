@@ -13,18 +13,26 @@ Marketing site and server-ready Next.js UI for D1 Concrete.
 ```bash
 ADMIN_PASSWORD=replace-with-a-strong-password
 AUTH_SECRET=replace-with-a-long-random-string
-BLOB_READ_WRITE_TOKEN=
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+NEXT_PUBLIC_MEDIA_CLOUDINARY_BASE_URL=
+NEXT_PUBLIC_MEDIA_CLOUDINARY_VIDEO_BASE_URL=
 ```
 
-## Gallery storage modes
+## Brand media behavior
+
+- Local development: brand media resolves to local files in `public/assets/brand`
+- Production: if `NEXT_PUBLIC_MEDIA_CLOUDINARY_BASE_URL` is set, brand media resolves to Cloudinary URLs
+- Safe fallback: if that production variable is empty, local file paths are still used
+
+## Uploading brand media to Cloudinary
+
+1. Set Cloudinary credentials in `.env.local`
+2. Run `npm run cloudinary:upload`
+3. Set `NEXT_PUBLIC_MEDIA_CLOUDINARY_BASE_URL` and `NEXT_PUBLIC_MEDIA_CLOUDINARY_VIDEO_BASE_URL` in Vercel Production to your Cloudinary base folder URLs
+
+## Gallery admin mode
 
 - Local development: admin uploads write files to `public/assets/gallery` and metadata to `data/gallery.json`
-- Production without blob token: gallery becomes manual and Vercel-safe; add assets and metadata through code commits
-- Production with `BLOB_READ_WRITE_TOKEN`: admin uploads go to Vercel Blob and metadata is stored in a blob manifest
-
-## Free-first deployment path
-
-If you want to stay free and simple, keep `BLOB_READ_WRITE_TOKEN` empty.
-In that mode, upload images by adding them to `public/assets/gallery`, update `data/gallery.json`, then push to Vercel.
-
-If you later want runtime uploads from the admin screen, create a Vercel Blob store and add its read/write token to `BLOB_READ_WRITE_TOKEN`.
+- Production: manual mode only (commit gallery assets and `data/gallery.json` changes)

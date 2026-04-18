@@ -8,11 +8,10 @@
     "start": "next start",
     "start:prod": "next start",
     "lint": "next lint",
-    "blob:upload": "node --env-file=.env.local scripts/upload-media-to-blob.mjs",
-    "blob:upload:dry": "node --env-file=.env.local scripts/upload-media-to-blob.mjs --dry-run"
+    "cloudinary:upload": "node --env-file=.env.local scripts/upload-media-to-cloudinary.mjs",
+    "cloudinary:upload:dry": "node --env-file=.env.local scripts/upload-media-to-cloudinary.mjs --dry-run"
   },
   "dependencies": {
-    "@vercel/blob": "^0.27.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.447.0",
