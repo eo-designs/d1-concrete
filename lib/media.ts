@@ -17,9 +17,13 @@ function normalizeHomeBackgroundUrl(value?: string) {
   return url;
 }
 
+function isVercelProductionDeployment() {
+  return process.env.VERCEL_ENV === 'production';
+}
+
 function getProductionBaseUrl(value?: string) {
   const baseUrl = readEnvValue(value);
-  return process.env.NODE_ENV === 'production' && baseUrl ? baseUrl : undefined;
+  return isVercelProductionDeployment() && baseUrl ? baseUrl : undefined;
 }
 
 function withImageBasePath(fileName: string) {
@@ -51,7 +55,7 @@ function fromEnvOrImageDefault(envValue: string | undefined, fileName: string) {
 export const media = {
   homeBackgroundVideo:
     normalizeHomeBackgroundUrl(process.env.NEXT_PUBLIC_MEDIA_HOME_BACKGROUND_URL) ||
-    withVideoBasePath('home_page_background.mov'),
+    (isVercelProductionDeployment() ? withVideoBasePath('home_page_background.mov') : undefined),
   galleryImage1: fromEnvOrImageDefault(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_1_URL, 'image1.png'),
   galleryImage2: fromEnvOrImageDefault(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_2_URL, 'image2.png'),
   galleryImage3: fromEnvOrImageDefault(process.env.NEXT_PUBLIC_MEDIA_GALLERY_IMAGE_3_URL, 'image3.png'),
