@@ -2,14 +2,15 @@ import Image from 'next/image';
 import { Container } from '@/components/Container';
 import { PageHeader } from '@/components/PageHeader';
 import { Reveal } from '@/components/Reveal';
+import { media } from '@/lib/media';
 
-const media = [
-	{ title: 'Commercial Site Concrete', src: '/assets/brand/GX080905.MP4', type: 'video' },
-	{ title: 'Flatwork In Progress', src: '/assets/brand/GX090905.MP4', type: 'video' },
-	{ title: 'Driveway & Finish Work', src: '/assets/brand/GX100905.MP4', type: 'video' },
-	{ title: 'Equipment & Crew Workflow', src: '/assets/brand/GX110905.MP4', type: 'video' },
-	{ title: 'Site Detail Pass', src: '/assets/brand/GX120905.MP4', type: 'video' },
-	{ title: 'Coverage Map', src: '/assets/brand/ca-map.png', type: 'image' }
+const mediaItems = [
+	{ title: 'Gallery Image 1', src: media.galleryImage1, type: 'image' },
+	{ title: 'Gallery Image 2', src: media.galleryImage2, type: 'image' },
+	{ title: 'Gallery Image 3', src: media.galleryImage3, type: 'image' },
+	{ title: 'Gallery Image 4', src: media.galleryImage4, type: 'image' },
+	{ title: 'Gallery Image 5', src: media.galleryImage5, type: 'image' },
+	{ title: 'Gallery Image 6', src: media.galleryImage6, type: 'image' }
 ];
 
 export default function GalleryPage() {
@@ -18,12 +19,12 @@ export default function GalleryPage() {
 			<PageHeader
 				eyebrow="Gallery"
 				title="Media gallery built to preview the visual direction fast."
-				description="This page uses the GX media and supporting assets you added so you can judge the look and feel before any deeper content pass."
+				description="This page uses your temporary media placeholders so layout and interactions stay production-safe while you finalize naming."
 				className="theme-metal"
 			/>
 			<Container className="py-16 md:py-20">
 				<div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-					{media.map((item, index) => (
+					{mediaItems.map((item, index) => (
 						<Reveal key={item.title} delay={index * 0.05}>
 							<article className={`overflow-hidden border ${index % 2 === 0 ? 'border-white/10 bg-[#05070c]' : 'border-black/10 bg-white'}`}>
 								<div className="relative aspect-[4/5] bg-black">

@@ -2,11 +2,16 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/Container';
 import { Reveal } from '@/components/Reveal';
+import { media } from '@/lib/media';
 
 export function Hero() {
 	return (
 		<section className="relative h-[calc(100svh-78px)] min-h-[38rem] overflow-hidden bg-white text-white md:h-[calc(100svh-82px)] md:min-h-[44rem]">
-			<video className="absolute inset-0 h-full w-full object-cover" src="/assets/brand/brandon_mora_finish_draft3.mov" autoPlay muted loop playsInline preload="auto" />
+			{media.homeBackgroundVideo ? (
+				<video className="absolute inset-0 h-full w-full object-cover" src={media.homeBackgroundVideo} poster={media.galleryImage1} autoPlay muted loop playsInline preload="auto" />
+			) : (
+				<div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${media.galleryImage1})` }} />
+			)}
 			<div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.46),rgba(0,0,0,0.18)_50%,rgba(0,0,0,0.5))]" />
 			<div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0)_32%,rgba(5,7,12,0.24)_100%)]" />
 			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_34%,rgba(79,179,255,0.22),transparent_34%),radial-gradient(circle_at_66%_78%,rgba(95,143,214,0.16),transparent_36%)]" />
