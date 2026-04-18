@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
-import crypto from 'node:crypto';
+import { execFile } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { promisify } from 'node:util';
+import { v2 as cloudinary } from 'cloudinary';
+
+const execFileAsync = promisify(execFile);
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has('--dry-run');
@@ -11,6 +15,10 @@ const force = args.has('--force');
 const projectRoot = process.cwd();
 const sourceRoot = path.join(projectRoot, 'public', 'assets', 'brand');
 const manifestPath = path.join(projectRoot, '.cloudinary-upload-manifest.json');
+const tempRoot = path.join(projectRoot, '.cloudinary-temp');
+const MAX_CLOUDINARY_IMAGE_BYTES = 10 * 1024 * 1024;
+const MAX_CLOUDINARY_VIDEO_BYTES = 100 * 1024 * 1024;
+const TARGET_VIDEO_BYTES = 95 * 1024 * 1024;
 
 const cloudName = process.env.CLOUDINARY_CLOUD_NAME?.trim();
 const apiKey = process.env.CLOUDINARY_API_KEY?.trim();
@@ -21,6 +29,13 @@ if (!cloudName || !apiKey || !apiSecret) {
   process.exit(1);
 }
 
+cloudinary.config({
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret,
+  secure: true
+});
+
 const ALLOWED_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.mov', '.mp4', '.m4v']);
 
 function inferResourceType(ext) {
@@ -28,15 +43,6 @@ function inferResourceType(ext) {
     return 'video';
   }
   return 'image';
-}
-
-function createSignature(params, secret) {
-  const payload = Object.keys(params)
-    .sort()
-    .map((key) => `${key}=${params[key]}`)
-    .join('&');
-
-  return crypto.createHash('sha1').update(`${payload}${secret}`).digest('hex');
 }
 
 async function collectFiles(dir) {
@@ -83,47 +89,131 @@ async function writeManifest(manifest) {
   await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
 }
 
+async function getMediaDuration(filePath) {
+  const { stdout } = await execFileAsync('ffprobe', [
+    '-v',
+    'error',
+    '-show_entries',
+    'format=duration',
+    '-of',
+    'default=noprint_wrappers=1:nokey=1',
+    filePath
+  ]);
+
+  return Number(stdout.trim());
+}
+
+async function ensureCloudinaryReadyVideo(filePath, publicId) {
+  const stat = await fs.stat(filePath);
+
+  if (stat.size <= MAX_CLOUDINARY_VIDEO_BYTES) {
+    return { uploadPath: filePath, cleanupPath: undefined };
+  }
+
+  await fs.mkdir(tempRoot, { recursive: true });
+
+  const durationSeconds = await getMediaDuration(filePath);
+  const bitrateKbps = Math.max(2500, Math.floor((TARGET_VIDEO_BYTES * 8 * 0.92) / Math.max(durationSeconds, 1) / 1000));
+  const maxrateKbps = Math.floor(bitrateKbps * 1.1);
+  const bufsizeKbps = maxrateKbps * 2;
+  const tempPath = path.join(tempRoot, `${publicId}.mp4`);
+
+  console.log(`   source video exceeds Cloudinary Free limit; transcoding to ${bitrateKbps}k MP4 for upload`);
+
+  await execFileAsync('ffmpeg', [
+    '-y',
+    '-i',
+    filePath,
+    '-vf',
+    'scale=1280:-2:force_original_aspect_ratio=decrease',
+    '-c:v',
+    'libx264',
+    '-preset',
+    'slow',
+    '-pix_fmt',
+    'yuv420p',
+    '-profile:v',
+    'high',
+    '-level',
+    '4.1',
+    '-movflags',
+    '+faststart',
+    '-an',
+    '-b:v',
+    `${bitrateKbps}k`,
+    '-maxrate',
+    `${maxrateKbps}k`,
+    '-bufsize',
+    `${bufsizeKbps}k`,
+    tempPath
+  ]);
+
+  const tempStat = await fs.stat(tempPath);
+  if (tempStat.size > MAX_CLOUDINARY_VIDEO_BYTES) {
+    throw new Error(`Transcoded video is still too large for Cloudinary Free (${tempStat.size} bytes).`);
+  }
+
+  return { uploadPath: tempPath, cleanupPath: tempPath };
+}
+
+async function ensureCloudinaryReadyImage(filePath, publicId) {
+  const stat = await fs.stat(filePath);
+
+  if (stat.size <= MAX_CLOUDINARY_IMAGE_BYTES) {
+    return { uploadPath: filePath, cleanupPath: undefined };
+  }
+
+  await fs.mkdir(tempRoot, { recursive: true });
+
+  const tempPath = path.join(tempRoot, `${publicId}.jpg`);
+
+  console.log('   source image exceeds Cloudinary Free limit; transcoding to JPEG for upload');
+
+  await execFileAsync('ffmpeg', [
+    '-y',
+    '-i',
+    filePath,
+    '-vf',
+    'scale=2560:-2:force_original_aspect_ratio=decrease',
+    '-q:v',
+    '2',
+    tempPath
+  ]);
+
+  const tempStat = await fs.stat(tempPath);
+  if (tempStat.size > MAX_CLOUDINARY_IMAGE_BYTES) {
+    throw new Error(`Transcoded image is still too large for Cloudinary Free (${tempStat.size} bytes).`);
+  }
+
+  return { uploadPath: tempPath, cleanupPath: tempPath };
+}
+
 async function uploadFile(filePath) {
   const relative = path.relative(sourceRoot, filePath).split(path.sep).join('/');
   const ext = path.extname(relative).toLowerCase();
   const basename = relative.slice(0, -ext.length);
   const resourceType = inferResourceType(ext);
   const publicId = basename;
-  const timestamp = Math.floor(Date.now() / 1000);
-
-  const signParams = {
+  const preparedAsset =
+    resourceType === 'video'
+      ? await ensureCloudinaryReadyVideo(filePath, publicId)
+      : await ensureCloudinaryReadyImage(filePath, publicId);
+  const uploadPath = preparedAsset.uploadPath;
+  const options = {
+    resource_type: resourceType,
     folder: 'assets/brand',
-    invalidate: 'true',
-    overwrite: 'true',
     public_id: publicId,
-    timestamp: String(timestamp)
+    overwrite: true,
+    invalidate: true,
+    chunk_size: 6 * 1024 * 1024
   };
 
-  const signature = createSignature(signParams, apiSecret);
-  const endpoint = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
-  const fileBuffer = await fs.readFile(filePath);
+  const json = await cloudinary.uploader.upload(uploadPath, options);
 
-  const form = new FormData();
-  form.append('file', new Blob([fileBuffer]), path.basename(filePath));
-  form.append('api_key', apiKey);
-  form.append('timestamp', String(timestamp));
-  form.append('public_id', publicId);
-  form.append('folder', 'assets/brand');
-  form.append('overwrite', 'true');
-  form.append('invalidate', 'true');
-  form.append('signature', signature);
-
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    body: form
-  });
-
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`Upload failed for ${relative}: ${res.status} ${body}`);
+  if (preparedAsset.cleanupPath) {
+    await fs.rm(preparedAsset.cleanupPath, { force: true });
   }
 
-  const json = await res.json();
   return {
     relative,
     resourceType,

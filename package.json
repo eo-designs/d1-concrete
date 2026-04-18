@@ -12,6 +12,7 @@
     "cloudinary:upload:dry": "node --env-file=.env.local scripts/upload-media-to-cloudinary.mjs --dry-run"
   },
   "dependencies": {
+    "cloudinary": "^2.9.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.447.0",
