@@ -28,7 +28,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.title,
     description: site.description,
-    type: 'website'
+    type: 'website',
+    siteName: site.name,
+    images: [
+      {
+        url: '/assets/brand/logo.png?v=20260413',
+        width: 1200,
+        height: 630,
+        alt: 'D1 Concrete logo'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.title,
+    description: site.description,
+    images: ['/assets/brand/logo.png?v=20260413']
   }
 };
 
