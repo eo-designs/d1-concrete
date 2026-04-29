@@ -15,7 +15,7 @@ export const site = {
   nav: [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
-    { href: '/gallery', label: 'Gallery' },
+    // { href: '/gallery', label: 'Gallery' }, // TODO: re-enable when gallery dev is complete
     { href: '/pricing', label: 'Pricing' },
     { href: '/contact', label: 'Contact' }
   ]

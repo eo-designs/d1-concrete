@@ -45,7 +45,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="Concrete services designed for high visibility spaces and high consequence work."
-        description="Residential and commercial scopes are presented separately so prospects can find themselves in the site quickly, while the overall tone still feels like one disciplined company."
+        description="From backyard slabs to commercial site work, every scope is handled by the same crew, the same standards, and the same expectation of clean execution."
         className="theme-metal"
       />
 

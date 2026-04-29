@@ -1,19 +1,23 @@
-import Image from 'next/image';
-import { Container } from '@/components/Container';
-import { PageHeader } from '@/components/PageHeader';
-import { Reveal } from '@/components/Reveal';
-import { media } from '@/lib/media';
+import { notFound } from 'next/navigation';
 
-const mediaItems = [
-	{ title: 'Gallery Image 1', src: media.galleryImage1, type: 'image' },
-	{ title: 'Gallery Image 2', src: media.galleryImage2, type: 'image' },
-	{ title: 'Gallery Image 3', src: media.galleryImage3, type: 'image' },
-	{ title: 'Gallery Image 4', src: media.galleryImage4, type: 'image' },
-	{ title: 'Gallery Image 5', src: media.galleryImage5, type: 'image' },
-	{ title: 'Gallery Image 6', src: media.galleryImage6, type: 'image' }
-];
+// TODO: Gallery page is under development — re-enable imports and body when ready
+// import Image from 'next/image';
+// import { Container } from '@/components/Container';
+// import { PageHeader } from '@/components/PageHeader';
+// import { Reveal } from '@/components/Reveal';
+// import { media } from '@/lib/media';
+
+// const mediaItems = [
+// 	{ title: 'Gallery Image 1', src: media.galleryImage1, type: 'image' },
+// 	{ title: 'Gallery Image 2', src: media.galleryImage2, type: 'image' },
+// 	{ title: 'Gallery Image 3', src: media.galleryImage3, type: 'image' },
+// 	{ title: 'Gallery Image 4', src: media.galleryImage4, type: 'image' },
+// 	{ title: 'Gallery Image 5', src: media.galleryImage5, type: 'image' },
+// 	{ title: 'Gallery Image 6', src: media.galleryImage6, type: 'image' }
+// ];
 
 export default function GalleryPage() {
+	notFound();
 	return (
 		<div className="theme-shell">
 			<PageHeader

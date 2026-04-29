@@ -7,7 +7,7 @@ import { buttonStyles } from '@/components/Button';
 import { Reveal } from '@/components/Reveal';
 
 const serviceGrid = [
-  { title: 'Brick & Block Masonry Installation', icon: Home },
+  { title: 'Public Works & Infrastructure Concrete', icon: Home },
   { title: 'Concrete Repair & Restoration', icon: HardHat },
   { title: 'Custom Finish Concrete', icon: Sparkles },
   { title: 'Retaining Wall Construction', icon: MapPinned },
@@ -70,7 +70,7 @@ export default async function HomePage() {
               width={310}
               height={128}
               sizes="(min-width: 768px) 310px, 250px"
-              className="mx-auto h-28 w-[250px] object-contain md:h-32 md:w-[310px]"
+              className="mx-auto h-32 w-[285px] object-contain md:h-36 md:w-[350px]"
               unoptimized
             />
             <div className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-semibold uppercase tracking-[0.16em] text-sky-500">

@@ -21,11 +21,8 @@ export const metadata: Metadata = {
   description: site.description,
   metadataBase: new URL('https://www.d1concrete.com'),
   icons: {
-    icon: [
-      { url: '/assets/brand/logo.svg?v=20260413', type: 'image/svg+xml' },
-      { url: '/assets/brand/logo.png?v=20260413', type: 'image/png', sizes: '32x32' }
-    ],
-    shortcut: '/assets/brand/logo.svg?v=20260413',
+    icon: [{ url: '/assets/brand/logo.png?v=20260413', type: 'image/png', sizes: '32x32' }],
+    shortcut: '/assets/brand/logo.png?v=20260413',
     apple: '/assets/brand/logo.png?v=20260413'
   },
   openGraph: {

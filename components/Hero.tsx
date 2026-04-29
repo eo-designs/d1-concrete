@@ -8,9 +8,9 @@ export function Hero() {
 	return (
 		<section className="relative h-[calc(100svh-78px)] min-h-[38rem] overflow-hidden bg-white text-white md:h-[calc(100svh-82px)] md:min-h-[44rem]">
 			{media.homeBackgroundVideo ? (
-				<video className="absolute inset-0 h-full w-full object-cover" src={media.homeBackgroundVideo} poster={media.galleryImage1} autoPlay muted loop playsInline preload="auto" />
+				<video className="absolute inset-0 h-full w-full object-cover" src={media.homeBackgroundVideo} poster={media.heroPosterImage} autoPlay muted loop playsInline preload="auto" />
 			) : (
-				<div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${media.galleryImage1})` }} />
+				<div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${media.heroPosterImage})` }} />
 			)}
 			<div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.46),rgba(0,0,0,0.18)_50%,rgba(0,0,0,0.5))]" />
 			<div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0)_32%,rgba(5,7,12,0.24)_100%)]" />

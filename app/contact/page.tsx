@@ -11,7 +11,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="The site keeps the next step obvious."
-        description="The fastest route is still a direct call, but the contact page also positions email, social, service coverage, and a future-ready inquiry form layout for when you want to wire it into a backend."
+        description="For prompt assistance, please call our office directly. You may also submit your project scope by email, and our team will respond with informed next steps."
         className="theme-metal"
       />
       <Container className="py-16 md:py-20">
@@ -44,8 +44,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.07}>
             <section className="panel theme-dark p-6 md:p-8">
-              <h2 className="text-3xl font-semibold text-white">Inquiry Form Layout</h2>
-              <p className="mt-4 w-full text-sm leading-7 text-white/78">This is intentionally built as a UI-first form. It can connect later to a Next.js route, CRM, Supabase table, or external automation flow without redesigning the page.</p>
+              <h2 className="text-3xl font-semibold text-white">Get a Free Quote!</h2>
               <form className="mt-6 grid gap-4 md:grid-cols-2">
                 <input className="field" placeholder="Full name" />
                 <input className="field" placeholder="Phone number" />
