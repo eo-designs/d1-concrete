@@ -21,7 +21,7 @@ export function Hero() {
 						<div className="text-center lg:text-left">
 							<div className="inline-flex items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-sky-200/90 md:text-xs">
 								<span className="h-px w-10 bg-sky-200/70" />
-								Northern California Concrete
+								California Concrete
 								<span className="h-px w-10 bg-sky-200/70" />
 							</div>
 							<h1 className="mt-5 space-y-2 font-[var(--font-heading)] text-[3.6rem] font-extrabold uppercase leading-[1.04] md:text-[5.8rem] md:leading-[1.06]">

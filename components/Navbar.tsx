@@ -34,7 +34,7 @@ export function Navbar() {
             />
           </Link>
           <div className="hidden md:block text-left">
-            <div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-sky-500">Lodi, California</div>
+            <div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-sky-500">Serving California</div>
             <div className="mt-1.5 font-[var(--font-heading)] text-[1.02rem] font-bold uppercase leading-[0.95] text-[#0A2A66]">Concrete. Clean. Built Right.</div>
             <div className="mt-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-black/62">Commercial • Public Works • Residential</div>
           </div>

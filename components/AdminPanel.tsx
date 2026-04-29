@@ -140,7 +140,7 @@ export function AdminPanel({ initialItems, initialTags, initialStorage }: { init
                   </label>
                   <label className="block text-sm font-semibold text-ink">
                     Location
-                    <input name="location" required className="field mt-2" placeholder="Lodi, CA" />
+                    <input name="location" required className="field mt-2" placeholder="Project city, CA" />
                   </label>
                 </div>
                 <label className="block text-sm font-semibold text-ink">

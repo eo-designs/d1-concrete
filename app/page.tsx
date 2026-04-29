@@ -55,7 +55,7 @@ export default async function HomePage() {
             <Reveal delay={0.08}>
               <div>
                 <p className={leadCopyClassName}>
-                  D1 Concrete proudly serves Northern California specializing in expert residential and commercial concrete solutions.
+                  D1 Concrete proudly serves California with expert residential and commercial concrete solutions.
                 </p>
                 <p className={bodyCopyClassName}>
                   With experienced field crews and dependable project coordination, we bring the manpower and discipline serious concrete work demands. From commercial buildings and site walls to driveways, patios, and custom residential upgrades, our team is committed to delivering durable, clean concrete work that meets schedule and exceeds expectations.
@@ -122,7 +122,7 @@ export default async function HomePage() {
                     ))}
                   </p>
                   <p className="mt-5 max-w-3xl text-base leading-7 text-white md:text-[1.15rem] md:leading-8">
-                    Serving commercial sites, public works corridors, transportation properties, and residential neighborhoods throughout the region.
+                    Serving commercial sites, public works corridors, transportation properties, and residential neighborhoods throughout California.
                   </p>
                 </div>
                 <div className="grid w-full gap-5 sm:grid-cols-2 sm:gap-6 lg:max-w-[44rem]">
@@ -163,7 +163,7 @@ export default async function HomePage() {
 
           <div className="border-b border-white/10 py-10">
             <div className="grid gap-5 md:grid-cols-3 md:gap-6">
-              {['Licensed & insured across Northern California', 'Residential and commercial project support', 'Free estimates and direct communication'].map((item, index) => (
+              {['Licensed & insured across California', 'Residential and commercial project support', 'Free estimates and direct communication'].map((item, index) => (
                 <Reveal key={item} delay={index * 0.08}>
                   <div className="flex h-full items-start gap-4 rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] px-6 py-7 text-lg font-medium leading-8 text-white/90 backdrop-blur-sm transition hover:border-white/18 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.05))] md:min-h-[148px] md:px-7 md:py-8 md:text-[1.2rem]">
                     <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-sky-400" />
