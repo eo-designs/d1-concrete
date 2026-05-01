@@ -7,7 +7,7 @@ export const site = {
   phoneDisplay: '(209) 712-9947',
   phoneHref: 'tel:+12097129947',
   serviceArea:
-    'Serving the entire Golden State with commercial and residential concrete expertise, experienced crews, and immaculate work standards.',
+    'Serving the entire Golden State with commercial and residential concrete expertise, experienced crews, and immaculate work standards. From public works corridors and transportation properties to private developments and residential neighborhoods, our team supports projects across California with disciplined execution and dependable field coordination.',
   social: {
     instagram: 'https://www.instagram.com/d1_concrete/',
     facebook: 'https://www.facebook.com/profile.php?id=61583636235517'
