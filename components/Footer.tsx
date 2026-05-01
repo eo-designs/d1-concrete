@@ -20,6 +20,14 @@ export function Footer() {
 							<a href={`mailto:${site.email}`} className="transition hover:text-[#0A2A66]">
 								{site.email}
 							</a>
+							<div className="mt-3 border-t border-black/10 pt-3">
+								<div className="font-semibold text-[#0A2A66]">Luis Sandoval</div>
+								<div className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50 md:text-[0.72rem]">Chief Executive Officer</div>
+							</div>
+							<div className="mt-2">
+								<div className="font-semibold text-[#0A2A66]">Rafael Mendez</div>
+								<div className="text-xs font-semibold uppercase tracking-[0.14em] text-black/50 md:text-[0.72rem]">Project Manager</div>
+							</div>
 							<Link href="/contact" className="font-semibold uppercase tracking-[0.14em] text-[#0A2A66] transition hover:text-sky-500">
 								Request An Estimate
 							</Link>
