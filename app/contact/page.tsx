@@ -68,6 +68,30 @@ export default function ContactPage() {
             </section>
           </Reveal>
         </div>
+
+        <Reveal className="mt-8 md:mt-10" delay={0.12}>
+          <section className="panel theme-light p-6 md:p-8">
+            <div className="inline-flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-sky-500">
+              <span>Company Leadership</span>
+              <span className="h-px w-12 bg-sky-300" />
+            </div>
+            <h3 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">Meet Our Team</h3>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <article className="rounded-3xl border border-black/10 bg-white p-5">
+                <div className="text-lg font-semibold leading-tight text-[#0A2A66]">Luis Sandoval</div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-black/52">Chief Executive Officer</div>
+              </article>
+              <article className="rounded-3xl border border-black/10 bg-white p-5">
+                <div className="text-lg font-semibold leading-tight text-[#0A2A66]">Rafael Mendez</div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-black/52">Project Manager</div>
+              </article>
+              <article className="rounded-3xl border border-black/10 bg-white p-5">
+                <div className="text-lg font-semibold leading-tight text-[#0A2A66]">Jose Luis Sandoval</div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-black/52">Officer</div>
+              </article>
+            </div>
+          </section>
+        </Reveal>
       </Container>
     </div>
   );
